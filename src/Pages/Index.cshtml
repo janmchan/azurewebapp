@@ -3,16 +3,25 @@
 @{
     ViewData["Title"] = "Home page";
 }
-@using Microsoft.AspNetCore.Authentication
 <div class="text-center">
     <h2>Claims</h2>
-
     <dl>
-        @foreach (var claim in User.Claims)
+    @{
+        var identity = (System.Security.Claims.ClaimsPrincipal)Thread.CurrentPrincipal;
+        if(identity != null)
         {
-            <dt>@claim.Type</dt>
-            <dd>@claim.Value</dd>
+        var claims = identity.Claims;
+                @foreach (var claim in claims)
+                {
+                    <dt>@claim.Type</dt>
+                    <dd>@claim.Value</dd>
+                }
         }
+        else
+        {
+            <div>Identity was not found</div>
+        }
+        
+    }
     </dl>
-    
 </div>
