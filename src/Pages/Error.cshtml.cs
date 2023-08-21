@@ -1,9 +1,8 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Diagnostics;
 
-namespace MtgCardManagement.Pages;
-
+namespace carder.Pages;
 [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 [IgnoreAntiforgeryToken]
 public class ErrorModel : PageModel
@@ -24,4 +23,3 @@ public class ErrorModel : PageModel
         RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
     }
 }
-
